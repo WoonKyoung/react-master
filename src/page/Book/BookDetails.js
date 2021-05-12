@@ -6,11 +6,11 @@ import {
   Route,
   Switch
 } from "react-router-dom";
-import { Loading } from "../ui";
-import BookGeneral from "./book-details/BookGeneral";
-import BookAuthors from "./book-details/BookAuthors";
-import BookPhotos from "./book-details/BookPhotos";
-import BookMenu from "./book-details/BookMenu";
+import { Loading } from "../../ui";
+import BookGeneral from "../../components/book-details/BookGeneral";
+import BookAuthors from "../../components/book-details/BookAuthors";
+import BookPhotos from "../../components/book-details/BookPhotos";
+import BookMenu from "../../components/book-details/BookMenu";
 
 const initialState = null;
 

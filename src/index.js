@@ -5,6 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import './setupFirebase';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import Amplify from "aws-amplify";
+import awsmobile from "./config/aws-exports";
+
+Amplify.configure(awsmobile)
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {useHistory, useLocation} from 'react-router-dom';
 import { Field, Button, Message } from "../../ui";
 import {useAuth} from '../../authContext';
+import {Auth} from 'aws-amplify'
 
 function SignIn() {
     const history = useHistory();
@@ -62,6 +63,8 @@ function SignIn() {
                 <Button type="submit" loading={loading}>Sign in</Button>
                 <Message text={error} type="error" />
             </form>
+
+            <button className="login_btn" onClick={() => Auth.federatedSignIn()}>로그인</button>
         </div>
     );
 }

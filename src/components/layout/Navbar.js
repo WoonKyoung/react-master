@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyleNav = styled.nav`
+  width : 15rem;
   @media  {
     position: relative;
     margin-left: ${(p) => p.visible ? 0 : '-15rem' };
@@ -10,7 +11,7 @@ const StyleNav = styled.nav`
 
 const links = [
     {
-        to: "/",
+        to: "/book",
         icon: "fas fa-box",
         label: "book"
     },

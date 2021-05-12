@@ -1,9 +1,21 @@
 import {useAuth} from "../../authContext";
 import {Button} from "../../ui";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import {store} from "../../scripts";
+import Net from "../../scripts/net";
 
 const Header = ({ toggle }) => {
-    const auth = useAuth();
+    const userInfo = JSON.parse(sessionStorage.getItem('user'));
+
+    const history = useHistory();
+
+    const handlelogout = () =>{
+        Net.logout((response)=> {
+          if(response.status === 200) {
+              history.replace("/signin");
+          }
+        })
+    }
 
   return (
     <>
@@ -20,8 +32,9 @@ const Header = ({ toggle }) => {
                       <button className="btn btn-success my-2 my-sm-0" type="submit"  style={{float : 'right', marginRight : '5px'}}  >Search
                       </button>
                   </form>
-                  {auth.user ? (
-                      <div>Welcome, ${auth.user.email} / <Button onClick={async () => await auth.signOut()}>Sign Out</Button></div>
+
+                  {userInfo.username !== null ? (
+                      <div>Welcome, {userInfo.username} / <Button onClick={handlelogout}>Sign Out</Button></div>
                   ) : (
                       <Link to="/signin">SignIn</Link>
                   )}
